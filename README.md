@@ -1,4 +1,4 @@
-# Docker Registry auf dem MPI Server
+# docker-images - Docker Registry auf dem MPI Server
 
 ## Start
 
@@ -23,6 +23,3 @@ Wie alles im Zusammenhang mit Docker ist auch die Registry sehr speicherhungrig.
 docker exec registry2 registry garbage-collect /etc/docker/registry/config.yml --delete-untagged=true
 df -h /srv/objstore/ ## zum überprüfen des genutzten und vorhandenen Speichers
 ```
-
-
-# docker-images
