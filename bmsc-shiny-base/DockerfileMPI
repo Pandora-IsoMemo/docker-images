@@ -1,0 +1,5 @@
+FROM bmsc-base:latest
+
+RUN Rscript -e "install.packages('BMSC', repos = 'https://isomemodb.com/r-repo/')"
+
+RUN Rscript -e "install.packages(c('shinythemes', 'futile.logger', 'DT','shinyjs','openxlsx','car','jsonlite','shinyWidgets','pROC','Rcpp'))"

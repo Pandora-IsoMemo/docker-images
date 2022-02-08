@@ -1,0 +1,48 @@
+FROM inwt/r-shiny:3.6.0 
+
+RUN \
+  apt-get update \
+  && apt-get install -y --no-install-recommends \
+    libcairo2-dev \
+    libcgal-dev \
+    libfreetype6-dev \
+    libftgl2 \
+    libgconf-2-4 \
+    libgdal-dev \
+    libgdal-dev \
+    libglu1-mesa-dev \
+    libgsl-dev \
+    libmagick++-dev \
+    libpng-dev \
+    libudunits2-dev \
+    libx11-dev \
+    libxss1 \
+    pandoc \
+    xvfb \
+  && apt-get autoremove -y \
+  && apt-get autoclean -y
+
+RUN \
+  mkdir -p /opt/orca && \
+  cd /opt/orca && \
+  wget https://github.com/plotly/orca/releases/download/v1.2.1/orca-1.2.1-x86_64.AppImage && \
+  chmod +x orca-1.2.1-x86_64.AppImage && \
+  ./orca-1.2.1-x86_64.AppImage --appimage-extract && \
+  rm orca-1.2.1-x86_64.AppImage && \
+  printf '#!/bin/bash \nxvfb-run --auto-servernum --server-args "-screen 0 640x480x24" /opt/orca/squashfs-root/app/orca "$@"' > /usr/bin/orca && \
+  chmod +x /usr/bin/orca
+
+RUN Rscript -e "install.packages(c('animation', 'abind', 'Bchron', 'car', 'coda', 'covr', \
+    'dplyr', 'DT', 'jsonlite', 'futile.logger', 'htmltools', \
+    'leaflet', 'magrittr', 'maps', 'MASS', 'mgcv', 'openxlsx', 'plotly', 'raster', \
+    'readr', 'readxl', 'rgdal', 'RColorBrewer', 'shiny', 'shinyjs', 'shinythemes', \
+    'shinyWidgets', 'sp', 'stringi', 'templates', 'tibble', 'tidyr' ))" \
+  && Rscript -e "devtools::install_github('INWTlab/shiny-matrix')" \
+  && Rscript -e "install.packages('nimble', repos = 'https://cloud.r-project.org')" \
+  && Rscript -e "install.packages('ggplot2', repos = 'https://cloud.r-project.org')" \
+  && Rscript -e "install.packages('Rfast', repos = 'https://cloud.r-project.org')" \
+  && Rscript -e "install.packages('rcarbon', repos = 'https://cloud.r-project.org')" \
+  && echo "options(repos = c(getOption('repos'), MPI = 'https://isomemodb.com/r-repo/'))" >> /usr/local/lib/R/etc/Rprofile.site \
+  && Rscript -e "install.packages('webshot', repos = 'https://cran.r-project.org')" \
+  && Rscript -e "install.packages('mapview', repos = 'https://cran.r-project.org')" \
+  && Rscript -e "webshot::install_phantomjs()"
