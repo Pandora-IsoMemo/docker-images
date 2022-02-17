@@ -7,5 +7,5 @@ advised to use this image anywhere outside this project.
 To pull the latest image:
 
 ```
-docker pull ghcr.io/pandora-isomemo/base:main
+docker pull ghcr.io/pandora-isomemo/base-image:latest
 ```
