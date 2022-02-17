@@ -64,5 +64,4 @@ ENV PATH="/opt/conda/bin:${PATH}"
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
     && bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda \
     && rm -f Miniconda3-latest-Linux-x86_64.sh \
-    && ls -l /opt/conda \
-    && conda install -c plotly plotly-orca
+    && conda install -y -c plotly plotly-orca
