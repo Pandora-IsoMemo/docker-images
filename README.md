@@ -1,25 +1,11 @@
-# docker-images - Docker Registry auf dem MPI Server
+# Docker images for the Pandora IsoMemo Project
 
-## Start
+This is a simple base image to setup a build environment. We use it as base
+because the installation of all dependencies is very time consuming. It is not
+advised to use this image anywhere outside this project.
 
-```sh
-docker run -d -p 8081:5000 --restart=always --name registry2 -v /srv/objstore/docker-registry:/var/lib/registry registry:2.7
+To pull the latest image:
+
 ```
-
-## Update für neue Version
-
-```sh
-docker pull registry:2.7
-docker stop registry2
-docker rm registry2
-# Start des Containers genau wie oben!
-```
-
-## Maintenance
-
-Wie alles im Zusammenhang mit Docker ist auch die Registry sehr speicherhungrig. Alte Images können entfernt werden mit:
-
-```sh
-docker exec registry2 registry garbage-collect /etc/docker/registry/config.yml --delete-untagged=true
-df -h /srv/objstore/ ## zum überprüfen des genutzten und vorhandenen Speichers
+docker pull ghcr.io/pandora-isomemo/base:main
 ```
