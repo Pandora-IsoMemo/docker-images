@@ -22,14 +22,13 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && apt-get autoclean -y \
     && rm -rf /var/lib/apt/lists/* \
-    && echo "options(repos = c(getOption('repos'), MPI = 'https://isomemodb.com/r-repo/', INWTLab = 'https://inwtlab.github.io/drat/'))" >> /usr/local/lib/R/etc/Rprofile.site \
+    && echo "options(repos = c(getOption('repos'), PANDORA = 'https://Pandora-IsoMemo.github.io/drat/'))" >> /usr/local/lib/R/etc/Rprofile.site \
     && installPackage \
     animation \
     abind \
     Bchron \
     BH \
-    # BMSC \ currently not available in correct version. Need to pull it from
-    # drat repository
+    BMSC \
     car \
     coda \
     covr \
