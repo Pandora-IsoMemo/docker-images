@@ -24,6 +24,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && echo "options(repos = c(getOption('repos'), PANDORA = 'https://Pandora-IsoMemo.github.io/drat/'))" >> /usr/local/lib/R/etc/Rprofile.site \
     && installPackage \
+    alphahull \
     animation \
     abind \
     Bchron \
@@ -31,27 +32,49 @@ RUN apt-get update \
     BMSC \
     car \
     coda \
+    colourpicker \
     covr \
+    FNN \
+    geometry \
     jsonlite \
+    kernlab \
+    ks \
+    linprog \
     loo \
+    lpSolve \
+    magic \
     maps \
     mapview \
     MASS \
+    miniUI \
     mgcv \
+    misc3d \
+    multicool \
+    mvtnorm \
     nimble \
     openxlsx \
+    plot3D \
+    pracma \
     pROC \
     raster \
     rcarbon \
-    Rfast \
+    RcppProgress \
     RColorBrewer \
+    readODS \
     readr \
     readxl \
+    Rfast \
     rgdal \
+    rgl \
     rstan \
     rstantools \
+    sgeostat \
+    shinyMatrix \
+    shinyWidgets \
     sp \
+    splancs \
     StanHeaders \
+    tripack \
     webshot \
     && Rscript -e "webshot::install_phantomjs()"
 
