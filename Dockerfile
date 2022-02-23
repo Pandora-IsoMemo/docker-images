@@ -2,19 +2,19 @@ from inwt/r-shiny:4.1.2
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    libv8-dev \
     libcairo2-dev \
     libcgal-dev \
-    libfreetype6-dev \
-    libftgl2 \
     libgconf-2-4 \
-    libgdal-dev \
     libgdal-dev \
     libglu1-mesa-dev \
     libgsl-dev \
+    libfreetype6-dev \
+    libftgl2 \
     libmagick++-dev \
     libpng-dev \
+    libtk8.6 \
     libudunits2-dev \
+    libv8-dev \
     libx11-dev \
     libxss1 \
     pandoc \
