@@ -5,6 +5,7 @@ RUN apt-get update \
     libcairo2-dev \
     libcgal-dev \
     libgconf-2-4 \
+    libgtk-3-0 \
     libgdal-dev \
     libglu1-mesa-dev \
     libgsl-dev \
