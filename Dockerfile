@@ -77,7 +77,7 @@ RUN apt-get update \
     StanHeaders \
     tripack \
     webshot \
-    && Rscript -e "webshot::install_phantomjs()"
+    #&& Rscript -e "webshot::install_phantomjs()"
 
 # We need orca or rather AppImage from https://github.com/plotly/orca
 # - First install conda
