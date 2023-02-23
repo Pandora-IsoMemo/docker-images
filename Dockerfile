@@ -83,8 +83,8 @@ RUN apt-get update \
 # - First install conda
 # - then install plotly-orca
 # - make conda available on PATH
-ENV PATH="/opt/conda/bin:${PATH}"
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-    && bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda \
-    && rm -f Miniconda3-latest-Linux-x86_64.sh \
-    && conda install -y -c plotly plotly-orca
+# ENV PATH="/opt/conda/bin:${PATH}"
+# RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+#    && bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda \
+#    && rm -f Miniconda3-latest-Linux-x86_64.sh \
+#    && conda install -y -c plotly plotly-orca
