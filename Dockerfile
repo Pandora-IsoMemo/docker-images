@@ -63,6 +63,7 @@ RUN apt-get update \
     readODS \
     readr \
     readxl \
+    reticulate \
     Rfast \
     rgdal \
     rgl \
