@@ -52,7 +52,6 @@ RUN apt-get update \
     misc3d \
     multicool \
     mvtnorm \
-    nimble \
     openxlsx \
     plot3D \
     pracma \
@@ -77,14 +76,4 @@ RUN apt-get update \
     StanHeaders \
     tripack \
     webshot \
-    #&& Rscript -e "webshot::install_phantomjs()"
-
-# We need orca or rather AppImage from https://github.com/plotly/orca
-# - First install conda
-# - then install plotly-orca
-# - make conda available on PATH
-# ENV PATH="/opt/conda/bin:${PATH}"
-# RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-#    && bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda \
-#    && rm -f Miniconda3-latest-Linux-x86_64.sh \
-#    && conda install -y -c plotly plotly-orca
+    && Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL)"
