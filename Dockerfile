@@ -70,11 +70,12 @@ RUN apt-get update \
     rstan \
     rstantools \
     sgeostat \
-    shinyMatrix \
     shinyWidgets \
     sp \
     splancs \
     StanHeaders \
     tripack \
     webshot \
-    && Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL)"
+    && Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL); \
+                   remotes::install_github('INWTlab/shiny-matrix')"
+
