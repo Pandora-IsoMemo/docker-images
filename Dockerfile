@@ -29,7 +29,7 @@ RUN apt-get update \
     && echo "options(repos = c(getOption('repos'), PANDORA = 'https://Pandora-IsoMemo.github.io/drat/'))" >> /usr/local/lib/R/etc/Rprofile.site \
     && echo "$(cat /usr/local/lib/R/etc/Rprofile.site)" \
     && Rscript /usr/local/src/get_mirror_date.R \
-    && sed -i "/MRAN/c\options(repos = c(MRAN = "${$(Rscript get_mirror_date.R)}"))" /usr/local/lib/R/etc/Rprofile.site \
+    && sed -i "0,/MRAN/c\helooooooooooo" /usr/local/lib/R/etc/Rprofile.site \
     && echo "$(cat /usr/local/lib/R/etc/Rprofile.site)" \
     && installPackage \
     alphahull \
