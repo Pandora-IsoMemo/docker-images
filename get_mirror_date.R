@@ -25,7 +25,6 @@ if (is.null(mirror_date)) {
 }
 
 mirror_url <- create_mirror_url(mirror_date)
-options(repos = c(MRAN = mirror_url))
 cat(mirror_url)
 
 q(status = 0)
