@@ -1,6 +1,6 @@
 from inwt/r-shiny:4.2.1
 
-ADD . /includes/
+COPY get_mirror_date.R /includes/
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -29,6 +29,8 @@ RUN apt-get update \
     && echo "$(cat /usr/local/lib/R/etc/Rprofile.site)" \
     && echo "$(ls -lah /app)" \
     && echo "$(ls -lah /home)" \
+    && chmod +x /includes/get_mirror_date.R \
+    && ./includes/get_mirror_date.R \
     && installPackage \
     alphahull \
     animation \
