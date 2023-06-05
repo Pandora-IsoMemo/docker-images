@@ -28,9 +28,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && echo "options(repos = c(getOption('repos'), PANDORA = 'https://Pandora-IsoMemo.github.io/drat/'))" >> /usr/local/lib/R/etc/Rprofile.site \
     && echo "$(cat /usr/local/lib/R/etc/Rprofile.site)" \
-    && echo "$(ls -lah /app)" \
-    && echo "$(ls -lah /home)" \
     && Rscript /usr/local/src/get_mirror_date.R \
+    && echo "$(cat /usr/local/lib/R/etc/Rprofile.site)" \
     && installPackage \
     alphahull \
     animation \
