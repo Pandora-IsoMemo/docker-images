@@ -24,6 +24,8 @@ RUN apt-get update \
     && apt-get autoclean -y \
     && rm -rf /var/lib/apt/lists/* \
     && echo "options(repos = c(getOption('repos'), PANDORA = 'https://Pandora-IsoMemo.github.io/drat/'))" >> /usr/local/lib/R/etc/Rprofile.site \
+    && ls /usr/lib/R/etc \ 
+    && cat /usr/lib/R/etc/Rprofile.site \
     && Rscript -e "getOption('repos')" \
     && installPackage \
     alphahull \
