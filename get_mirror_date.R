@@ -1,5 +1,3 @@
-#!/usr/bin/Rscript
-
 create_mirror_url <- function(date) {
   paste0("https://packagemanager.posit.co/cran/", format(date, "%Y-%m-%d"))
 }
