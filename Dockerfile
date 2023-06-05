@@ -21,6 +21,7 @@ RUN apt-get update \
     libx11-dev \
     libxss1 \
     pandoc \
+    curl \
     xvfb \
     && apt-get autoremove -y \
     && apt-get autoclean -y \
