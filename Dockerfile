@@ -1,5 +1,7 @@
 from inwt/r-shiny:4.2.1
 
+ADD . /includes/
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     libcairo2-dev \
@@ -24,8 +26,12 @@ RUN apt-get update \
     && apt-get autoclean -y \
     && rm -rf /var/lib/apt/lists/* \
     && echo "options(repos = c(getOption('repos'), PANDORA = 'https://Pandora-IsoMemo.github.io/drat/'))" >> /usr/local/lib/R/etc/Rprofile.site \
-    && echo $(cat /usr/local/lib/R/etc/Rprofile.site) \
-    && Rscript -e "getOption('repos')" \
+    && echo "$(cat /usr/local/lib/R/etc/Rprofile.site)" \
+    && pwd \
+    && echo "$(ls -lah ~)" \
+    && chmod +x /includes/*.R \
+    && ./include/get_mirror_date.R \
+    && installPackage \
     alphahull \
     animation \
     abind \
