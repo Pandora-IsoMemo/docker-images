@@ -28,8 +28,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && echo "options(repos = c(getOption('repos'), PANDORA = 'https://Pandora-IsoMemo.github.io/drat/'))" >> /usr/local/lib/R/etc/Rprofile.site \
     && echo "$(cat /usr/local/lib/R/etc/Rprofile.site)" \
-    && Rscript /usr/local/src/get_mirror_date.R \
-    && sed -i "/MRAN/ c\options(repos = c(MRAN = \"https://packagemanager.posit.co/cran/2022-06-23\"))" /usr/local/lib/R/etc/Rprofile.site \
+    && url=$(Rscript /usr/local/src/get_mirror_date.R) \
+    && sed -i "/MRAN/ c\options(repos = c(MRAN = \"${url}\"))" /usr/local/lib/R/etc/Rprofile.site \
     && echo "$(cat /usr/local/lib/R/etc/Rprofile.site)" \
     && installPackage \
     alphahull \
