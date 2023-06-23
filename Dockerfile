@@ -1,7 +1,5 @@
 from inwt/r-shiny:4.2.1
 
-COPY get_mirror_date.R /usr/local/src/get_mirror_date.R
-
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     libcairo2-dev \
@@ -21,14 +19,11 @@ RUN apt-get update \
     libx11-dev \
     libxss1 \
     pandoc \
-    curl \
     xvfb \
     && apt-get autoremove -y \
     && apt-get autoclean -y \
     && rm -rf /var/lib/apt/lists/* \
     && echo "options(repos = c(getOption('repos'), PANDORA = 'https://Pandora-IsoMemo.github.io/drat/'))" >> /usr/local/lib/R/etc/Rprofile.site \
-    && url=$(Rscript /usr/local/src/get_mirror_date.R) \
-    && sed -i "/MRAN/ c\options(repos = c(CRAN = \"${url}\"))" /usr/local/lib/R/etc/Rprofile.site \
     && installPackage \
     alphahull \
     animation \
