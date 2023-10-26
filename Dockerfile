@@ -53,6 +53,7 @@ RUN apt-get update \
     multicool \
     mvtnorm \
     openxlsx \
+    pastclim \
     plot3D \
     pracma \
     pROC \
