@@ -53,7 +53,6 @@ RUN apt-get update \
     multicool \
     mvtnorm \
     openxlsx \
-    pastclim \
     plot3D \
     pracma \
     pROC \
@@ -78,6 +77,7 @@ RUN apt-get update \
     tripack \
     webshot \
     && Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL); \
+                   install.packages('https://cran.r-project.org/src/contrib/pastclim_1.2.4.tar.gz', repos = NULL); \
                    remotes::install_github('INWTlab/shiny-matrix'); \
                    webshot::install_phantomjs()"
 
