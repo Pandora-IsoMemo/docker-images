@@ -1,5 +1,6 @@
 from inwt/r-shiny:4.2.3
 
+# install system dependencies
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     libcairo2-dev \
@@ -22,9 +23,13 @@ RUN apt-get update \
     xvfb \
     && apt-get autoremove -y \
     && apt-get autoclean -y \
-    && rm -rf /var/lib/apt/lists/* \
-    && echo "options(repos = c(getOption('repos'), PANDORA = 'https://Pandora-IsoMemo.github.io/drat/'))" >> /usr/local/lib/R/etc/Rprofile.site \
-    && installPackage \
+    && rm -rf /var/lib/apt/lists/*
+
+# add Pandora Repository
+RUN echo "options(repos = c(getOption('repos'), PANDORA = 'https://Pandora-IsoMemo.github.io/drat/'))" >> /usr/local/lib/R/etc/Rprofile.site
+
+# install R Packages
+RUN installPackage \
     alphahull \
     animation \
     abind \
@@ -76,7 +81,7 @@ RUN apt-get update \
     splancs \
     StanHeaders \
     tripack \
-    webshot \
-    && Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL); \
-                   webshot::install_phantomjs()"
+    webshot 
 
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL); \
+                webshot::install_phantomjs()"
