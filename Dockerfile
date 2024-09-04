@@ -3,6 +3,7 @@ from inwt/r-shiny:4.2.3
 # install system dependencies
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
+    lbzip2 \
     libcairo2-dev \
     libcgal-dev \
     libgconf-2-4 \
@@ -80,15 +81,7 @@ RUN installPackage \
     splancs \
     StanHeaders \
     tripack \
-    webshot 
-
-# test install lbzip2 for phantomjs
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    lbzip2 \
-    && apt-get autoremove -y \
-    && apt-get autoclean -y \
-    && rm -rf /var/lib/apt/lists/*
+    webshot
 
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL); \
                 webshot::install_phantomjs()"
