@@ -1,4 +1,4 @@
-from inwt/r-shiny:4.2.1
+from inwt/r-shiny:4.2.3
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
