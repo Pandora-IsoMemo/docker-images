@@ -1,4 +1,4 @@
-FROM inwt/r-shiny:4.2.3
+FROM inwt/r-shiny:4.3.2
 
 # install system dependencies
 RUN apt-get update \
