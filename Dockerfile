@@ -70,7 +70,6 @@ RUN installPackage \
     readxl \
     reticulate \
     Rfast \
-    rgdal \
     rgl \
     rstan \
     rstantools \
