@@ -82,5 +82,13 @@ RUN installPackage \
     tripack \
     webshot 
 
+# test install lbzip2 for phantomjs
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    lbzip2 \
+    && apt-get autoremove -y \
+    && apt-get autoclean -y \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL); \
                 webshot::install_phantomjs()"
