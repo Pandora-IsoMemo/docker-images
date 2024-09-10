@@ -10,6 +10,7 @@ RUN apt-get update \
     libgtk-3-0 \
     libgdal-dev \
     libglu1-mesa-dev \
+    libglpk-dev \
     libgsl-dev \
     libfreetype6-dev \
     libftgl2 \
